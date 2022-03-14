@@ -41,35 +41,6 @@ class GeojsonFeatureCollection:
                 
                 else:
                     pass
-                    
-                # for p in data["features"]:
-                #     if i["properties"]["id"] == "01":
-                # if parents == input_id:
-                #     print(i)
-                #     break
-
-                # else:
-                #     print("None")
-                #     break
-
-        # for i in data["features"]:
-        #     if i["properties"]["id"] == "01":
-        #         print(i)
-        #         break
-                        
-                # if i["properties"]["id"] == id:
-                #     print(i)
-
-                    # for i in data["features"]:
-                    #     parent = i["properties"]["parent"]
-                    #     print(f"line 27: {parent}") # works
-                    #     if parent == id:
-                    #         print(i)
-                    #         break
-
-                # else:
-                #     print("None")
-                #     break
         else:
             pass
 # if parent id is 01
@@ -81,12 +52,3 @@ class GeojsonShelf:
 
 class GeojsonFacing:
     Pass
-
-
-# g = GeojsonFeatureCollection("FeatureCollection")
-# s = GeojsonShelf("Johnny", "black", "30")
-# f = GeojsonFacing("Brian", "brown", "60")
-
-# g.goutput()
-# s.soutput()
-# f.foutput()
