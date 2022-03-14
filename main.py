@@ -31,10 +31,10 @@ class GeojsonFeatureCollection:
                     for r in data["features"]:
                         if r["properties"]["id"] == parents:
                             print(json.dumps(r, indent=4))
-                            # break
                         elif parents is None:
                             print("None")
                             break
+
 # if parent id is 01
 # then go look for object where id is 01
 # then print object where id is 01
