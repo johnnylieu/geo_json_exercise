@@ -28,14 +28,15 @@ class GeojsonFeatureCollection:
                 # print(f"parents: {parents}") # works
                 
                 if id == input_id:
-                    # print(parents) #works
+                    print(id) #works
                     for r in data["features"]:
                         if r["properties"]["id"] == parents:
                             print(json.dumps(r, indent=4))
-                
-                else:
-                    print("None")
-                    break
+                            break
+                    
+                # else:
+                #     print("None")
+                #     break
                     
                 # for p in data["features"]:
                 #     if i["properties"]["id"] == "01":
