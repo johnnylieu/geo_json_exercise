@@ -32,17 +32,9 @@ class GeojsonFeatureCollection:
                         if r["properties"]["id"] == parents:
                             print(json.dumps(r, indent=4))
                             # break
-                        else:
-                            pass
-                    
-                elif (id != input_id):
-                    print("None")
-                    # break
-                
-                else:
-                    pass
-        else:
-            pass
+                        elif parents is None:
+                            print("None")
+                            break
 # if parent id is 01
 # then go look for object where id is 01
 # then print object where id is 01
