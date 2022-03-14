@@ -1,5 +1,6 @@
 from ast import Pass
 from asyncio.windows_events import NULL
+from gettext import NullTranslations
 import json
 
 print(f"\n1. Retrieve Feature Object.")
@@ -28,15 +29,17 @@ class GeojsonFeatureCollection:
                 # print(f"parents: {parents}") # works
                 
                 if id == input_id:
-                    print(id) #works
+                    # print(id) #works
                     for r in data["features"]:
                         if r["properties"]["id"] == parents:
                             print(json.dumps(r, indent=4))
                             break
+                        else:
+                            print("None")
+                            break
                     
-                # else:
-                #     print("None")
-                #     break
+                else:
+                    pass
                     
                 # for p in data["features"]:
                 #     if i["properties"]["id"] == "01":
