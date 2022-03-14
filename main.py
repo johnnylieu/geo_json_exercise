@@ -15,10 +15,14 @@ class GeojsonFeatureCollection:
         # print(type(data)) # works -> dictionary
 
         if option == 1:
-            print(json.dumps(data, indent=4)) # works
+            # print(json.dumps(data, indent=4)) # works
+            input_id = input("What is the id? ")
+            for i in data["features"]:
+                if i["properties"]["id"] == input_id:
+                    print(json.dumps(i, indent=4))
 
         elif option == 2:
-            input_id = input("What is the id field? ")
+            input_id = input("What is the id? ")
 
             for i in data["features"]:
                 id = i["properties"]["id"]
