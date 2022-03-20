@@ -16,14 +16,22 @@ class GeojsonFeatureCollection:
 
         if option == 1:
             # print(json.dumps(data, indent=4)) # works
+            ID = False
             input_id = input("What is the id? ")
             for i in data["features"]:
                 if i["properties"]["id"] == input_id:
                     print(json.dumps(i, indent=4))
+                    ID = True
+                    break
+                # elif i["properties"]["id"] != input_id:
+                #     print("None", flush = True)
+                #     # break
+            if ID == False:
+                print("None")
+
 
         elif option == 2:
             input_id = input("What is the id? ")
-
             for i in data["features"]:
                 id = i["properties"]["id"]
                 # print(f"id: {id}") #works
@@ -47,4 +55,4 @@ class GeojsonShelf:
     pass
 
 class GeojsonFacing:
-    Pass
+    pass
