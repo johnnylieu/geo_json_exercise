@@ -20,7 +20,6 @@ class GeojsonFeatureCollection:
                 if i["properties"]["id"] == input_id:
                     print(json.dumps(i, indent=4))
                     ID = True
-                    break
             if ID == False:
                 print("None")
 
