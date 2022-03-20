@@ -11,8 +11,6 @@ option = int(input(f"Enter your option (1, 2, 3, 4, or 5): "))
 class GeojsonFeatureCollection:
     with open("geojson.json", "r") as geojson:
         data = json.load(geojson)
-        # print((data)) #works
-        # print(type(data)) # works -> dictionary
 
         if option == 1:
             # print(json.dumps(data, indent=4)) # works
@@ -23,9 +21,6 @@ class GeojsonFeatureCollection:
                     print(json.dumps(i, indent=4))
                     ID = True
                     break
-                # elif i["properties"]["id"] != input_id:
-                #     print("None", flush = True)
-                #     # break
             if ID == False:
                 print("None")
 
