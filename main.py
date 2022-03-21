@@ -23,8 +23,10 @@ class GeojsonFeatureCollection:
             if ID == False:
                 print("None")
 
-
         elif option == 2:
+        # if parent id is 01
+        # then go look for object where id is 01
+        # then print object where id is 01
             input_id = input("What is the id? ")
             for i in data["features"]:
                 id = i["properties"]["id"]
@@ -40,10 +42,27 @@ class GeojsonFeatureCollection:
                         elif parents is None:
                             print("None")
                             break
+        
+        elif option == 3:
+            # if id is 01 && parent is Null (None)
+            # loop through and return all IDs with 01
+            # append to list and return list
+            # else return empty list
+            input_id = input("What is the id? ")
+            list = []
+            # print(f"list (should be empty): {list}") # works
+            for i in data["features"]:
+                id = i["properties"]["id"]
+                parents = i["properties"]["parent"]
+                if id == input_id:
+                    if id == input_id and parents is None:
+                        for r in data["features"]:
+                            list.append(r)
+                            print(list)
+                            # print(f"list (should not be empty): {list}") # works
+                    else:
+                        print(list)
 
-# if parent id is 01
-# then go look for object where id is 01
-# then print object where id is 01
 
 class GeojsonShelf:
     pass
