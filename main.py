@@ -5,6 +5,7 @@ print(f"2. Retrieve Parent Feature Object.")
 print(f"3. Retrieve Children Feature Object(s).")
 print(f"4. Return All Shelf Ojbects As A list.")
 print(f"5. Return All Facing Objects As A List.\n")
+print(f"5. Return a formatted string label of its parent Shelf's label + given Facing's label \n")
 option = int(input(f"Enter your option (1, 2, 3, 4, or 5): "))
 
 class GeojsonFeatureCollection:
@@ -47,6 +48,18 @@ class GeojsonFeatureCollection:
                         print(list)
             if empty_list == True:
                 print(list)
+
+        elif option == 6:
+            input = input("What is the id? ")
+            for i in data["features"]:
+                string = ""
+                type = i["properties"]["type"]
+                id = i["properites"]["id"]
+                parent = i["properties"]["parent"]
+
+                if id == input and parent == None:
+                    string = i
+                    print(f"string: {string}")
 
 
 class GeojsonShelf:
