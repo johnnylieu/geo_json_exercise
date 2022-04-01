@@ -12,7 +12,6 @@ class GeojsonFeatureCollection:
         data = json.load(geojson)
 
         if option == 1:
-            # print(json.dumps(data, indent=4)) # works
             ID = False
             input_id = input("What is the id? ")
             for i in data["features"]:
@@ -23,18 +22,12 @@ class GeojsonFeatureCollection:
                 print("None")
 
         elif option == 2:
-        # if parent id is 01
-        # then go look for object where id is 01
-        # then print object where id is 01
             input_id = input("What is the id? ")
             for i in data["features"]:
                 id = i["properties"]["id"]
-                # print(f"id: {id}") #works
                 parents = i["properties"]["parent"]
-                # print(f"parents: {parents}") # works
                 
                 if id == input_id:
-                    # print(id) #works
                     for r in data["features"]:
                         if r["properties"]["id"] == parents:
                             print(json.dumps(r, indent=4))
@@ -44,31 +37,13 @@ class GeojsonFeatureCollection:
                             break
         
         elif option == 3:
-            # if id is 01 && parent is Null (None)
-            # loop through and return all IDs with 01
-            # append to list and return list
-            # else return empty list
             input_id = input("What is the id? ")
-            # print(f"list (should be empty): {list}") # works
             for i in data["features"]:
                 id = i["properties"]["id"][0:2]
-                # print(f"id 1 & 2: {id}")
-                # print(f"i: {i}")
                 parents = i["properties"]["parent"]
-                # print(f"parents: {parents}")
                 list = []
                 if id == input_id and parents != None:
-                    # print(f"i: {i}")
-                # for r in data["features"]:
-                #     print(f"r: {r}")
-                #     # if id == input_id[0:2] and parents != None:
-                #     # # print(f"input id: {input_id[0:2]}")
-                #     #     # assign variable for id
-                #     #     # search for id but just the first two characters
-                #     #     # & make sure ID matches and parent is not null(none)
-                #     #     # append to list
                         list.append(i)
-                        # pprint(list)
                         print(list)
             print(list)
 
