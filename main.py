@@ -1,5 +1,4 @@
 import json
-from pprint import pprint
 
 print(f"\n1. Retrieve Feature Object.")
 print(f"2. Retrieve Parent Feature Object.")
@@ -50,7 +49,6 @@ class GeojsonFeatureCollection:
             # append to list and return list
             # else return empty list
             input_id = input("What is the id? ")
-            list = []
             # print(f"list (should be empty): {list}") # works
             for i in data["features"]:
                 id = i["properties"]["id"][0:2]
@@ -58,6 +56,7 @@ class GeojsonFeatureCollection:
                 # print(f"i: {i}")
                 parents = i["properties"]["parent"]
                 # print(f"parents: {parents}")
+                list = []
                 if id == input_id and parents != None:
                     # print(f"i: {i}")
                 # for r in data["features"]:
@@ -70,9 +69,7 @@ class GeojsonFeatureCollection:
                 #     #     # append to list
                         list.append(i)
                         # pprint(list)
-                        print(F"{list}\n")
-                        # break
-                #     #     # print(f"list (should not be empty): {list}") # works
+                        print(list, end='\n')
             print(list)
 
 
