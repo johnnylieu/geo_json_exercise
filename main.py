@@ -1,5 +1,5 @@
-from ast import Pass
 import json
+from pprint import pprint
 
 print(f"\n1. Retrieve Feature Object.")
 print(f"2. Retrieve Parent Feature Object.")
@@ -55,18 +55,25 @@ class GeojsonFeatureCollection:
             for i in data["features"]:
                 id = i["properties"]["id"][0:2]
                 # print(f"id 1 & 2: {id}")
+                # print(f"i: {i}")
                 parents = i["properties"]["parent"]
                 # print(f"parents: {parents}")
-                for r in data["features"]:
-                    if id == input_id[0:2] and parents != None:
-                    # print(f"input id: {input_id[0:2]}")
-                        # assign variable for id
-                        # search for id but just the first two characters
-                        # & make sure ID matches and parent is not null(none)
-                        # append to list
-                        list.append(r)
-                        print(list)
-                        # print(f"list (should not be empty): {list}") # works
+                if id == input_id and parents != None:
+                    # print(f"i: {i}")
+                # for r in data["features"]:
+                #     print(f"r: {r}")
+                #     # if id == input_id[0:2] and parents != None:
+                #     # # print(f"input id: {input_id[0:2]}")
+                #     #     # assign variable for id
+                #     #     # search for id but just the first two characters
+                #     #     # & make sure ID matches and parent is not null(none)
+                #     #     # append to list
+                        list.append(i)
+                        # pprint(list)
+                        print(F"{list}\n")
+                        # break
+                #     #     # print(f"list (should not be empty): {list}") # works
+            print(list)
 
 
 class GeojsonShelf:
