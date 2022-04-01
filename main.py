@@ -40,13 +40,12 @@ class GeojsonFeatureCollection:
                 id = i["properties"]["id"][0:2]
                 parents = i["properties"]["parent"]
                 list = []
-                empty_list = False
                 
                 if id == input_id and parents != None:
-                        empty_list = True
+                        empty_list = False
                         list.append(i)
                         print(list)
-            if empty_list == False:
+            if empty_list == True:
                 print("None")
 
 
