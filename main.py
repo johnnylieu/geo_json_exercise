@@ -35,15 +35,19 @@ class GeojsonFeatureCollection:
     
         elif option == 3:
             input_id = input("What is the id? ")
+            empty_list = True
             for i in data["features"]:
                 id = i["properties"]["id"][0:2]
                 parents = i["properties"]["parent"]
                 list = []
+                empty_list = False
                 
                 if id == input_id and parents != None:
+                        empty_list = True
                         list.append(i)
                         print(list)
-            print(list)
+            if empty_list == False:
+                print("None")
 
 
 class GeojsonShelf:
