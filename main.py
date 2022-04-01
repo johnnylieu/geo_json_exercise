@@ -50,16 +50,14 @@ class GeojsonFeatureCollection:
                 print(list)
 
         elif option == 6:
-            input = input("What is the id? ")
+            input_id = input("What is the id? ")
             for i in data["features"]:
-                string = ""
+                id = i["properties"]["id"]
+                parents = i["properties"]["parent"]
                 type = i["properties"]["type"]
-                id = i["properites"]["id"]
-                parent = i["properties"]["parent"]
-
-                if id == input and parent == None:
-                    string = i
-                    print(f"string: {string}")
+                
+                if input_id[0:2] == id and len(input_id) == 4 and parents == None:
+                    print(f"{type}_{input_id}")
 
 
 class GeojsonShelf:
