@@ -39,6 +39,7 @@ class GeojsonFeatureCollection:
                     for r in data["features"]:
                         if r["properties"]["id"] == parents:
                             print(json.dumps(r, indent=4))
+                            break
                         elif parents is None:
                             print("None")
                             break
@@ -52,16 +53,20 @@ class GeojsonFeatureCollection:
             list = []
             # print(f"list (should be empty): {list}") # works
             for i in data["features"]:
-                id = i["properties"]["id"]
+                id = i["properties"]["id"][0:2]
+                # print(f"id 1 & 2: {id}")
                 parents = i["properties"]["parent"]
-                if id == input_id:
-                    if id == input_id and parents is None:
-                        for r in data["features"]:
-                            list.append(r)
-                            print(list)
-                            # print(f"list (should not be empty): {list}") # works
-                    else:
+                # print(f"parents: {parents}")
+                for r in data["features"]:
+                    if id == input_id[0:2] and parents != None:
+                    # print(f"input id: {input_id[0:2]}")
+                        # assign variable for id
+                        # search for id but just the first two characters
+                        # & make sure ID matches and parent is not null(none)
+                        # append to list
+                        list.append(r)
                         print(list)
+                        # print(f"list (should not be empty): {list}") # works
 
 
 class GeojsonShelf:
