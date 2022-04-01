@@ -46,7 +46,7 @@ class GeojsonFeatureCollection:
                         list.append(i)
                         print(list)
             if empty_list == True:
-                print("None")
+                print(list)
 
 
 class GeojsonShelf:
