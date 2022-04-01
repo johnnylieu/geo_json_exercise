@@ -69,7 +69,7 @@ class GeojsonFeatureCollection:
                 #     #     # append to list
                         list.append(i)
                         # pprint(list)
-                        print(list, end='\n')
+                        print(list)
             print(list)
 
 
