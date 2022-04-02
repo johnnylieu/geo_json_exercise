@@ -39,7 +39,22 @@ class GeojsonFeatureCollection:
                     print(list)
         if empty_list == True:
             print(f"empty list: {list}")
-    
+
+
+    def get_facing_compound_label():
+        input_id = input("What is the id? ")
+        for i in data["features"]:
+            id = i["properties"]["id"]
+            type = i["properties"]["type"]
+            for r in data["features"]:
+                if r["properties"]["type"] == "facing" and r["properties"]["id"] == input_id:
+                    facing_label = r["properties"]["label"]
+                    
+                    if input_id[0:2] == id and len(input_id) == 4:
+                        print(f"{type}_{id}_{facing_label}")
+
+
+class GeojsonShelf:
     def get_all_shelves():
         list = ""
         empty_list = True
@@ -54,6 +69,7 @@ class GeojsonFeatureCollection:
         if empty_list == True:
             print(f"empty list: {list}")
 
+class GeojsonFacing:
     def get_all_facings():
         list = ""
         empty_list = True
@@ -67,26 +83,6 @@ class GeojsonFeatureCollection:
                 print(list)
         if empty_list == True:
             print(f"empty list: {list}")
-
-
-#         elif option == 6:
-#             input_id = input("What is the id? ")
-#             for i in data["features"]:
-#                 id = i["properties"]["id"]
-#                 type = i["properties"]["type"]
-#                 for r in data["features"]:
-#                     if r["properties"]["type"] == "facing" and r["properties"]["id"] == input_id:
-#                         facing_label = r["properties"]["label"]
-                        
-#                         if input_id[0:2] == id and len(input_id) == 4:
-#                             print(f"{type}_{id}_{facing_label}")
-
-
-# class GeojsonShelf:
-#     pass
-
-# class GeojsonFacing:
-#     pass
 
 if __name__ == "__main__":
     print(f"\n1. Retrieve Feature Object.")
@@ -103,6 +99,8 @@ if __name__ == "__main__":
     elif option == 3:
         GeojsonFeatureCollection.get_children_feature()
     elif option == 4:
-        GeojsonFeatureCollection.get_all_shelves()
+        GeojsonShelf.get_all_shelves()
     elif option == 5:
-        GeojsonFeatureCollection.get_all_facings()
+        GeojsonFacing.get_all_facings()
+    elif option == 6:
+        GeojsonFeatureCollection.get_facing_compound_label()
