@@ -88,10 +88,12 @@ if __name__ == "__main__":
     print(f"\n1. Retrieve Feature Object.")
     print(f"2. Retrieve Parent Feature Object.")
     print(f"3. Retrieve Children Feature Object(s).")
-    print(f"4. Return All Shelf Ojbects As A list.")
-    print(f"5. Return All Facing Objects As A List.")
+    print(f"4. Return All Facing Ojbects As A list.")
+    print(f"5. Return All Shelf Objects As A List.")
     print(f"6. Return a formatted string label of its parent Shelf's label + given Facing's label \n")
+    
     option = int(input(f"Enter your option (1, 2, 3, 4, 5, or 6): "))
+    
     if option == 1:
         GeojsonFeatureCollection.get_feature()
     elif option == 2:
