@@ -38,10 +38,35 @@ class GeojsonFeatureCollection:
                     list = i
                     print(list)
         if empty_list == True:
-            print(list)
+            print(f"empty list: {list}")
     
     def get_all_shelves():
         list = ""
+        empty_list = True
+        for i in data["features"]:
+            type = i["properties"]["type"]
+            # print(f"type: {type}")
+            list = ""
+            if type == "facing":
+                empty_list = False
+                list = i
+                print(list)
+        if empty_list == True:
+            print(f"empty list: {list}")
+
+    def get_all_facings():
+        list = ""
+        empty_list = True
+        for i in data["features"]:
+            type = i["properties"]["type"]
+            # print(f"type: {type}")
+            list = ""
+            if type == "shelf":
+                empty_list = False
+                list = i
+                print(list)
+        if empty_list == True:
+            print(f"empty list: {list}")
 
 
 #         elif option == 6:
@@ -77,3 +102,7 @@ if __name__ == "__main__":
         GeojsonFeatureCollection.get_parent_feature()
     elif option == 3:
         GeojsonFeatureCollection.get_children_feature()
+    elif option == 4:
+        GeojsonFeatureCollection.get_all_shelves()
+    elif option == 5:
+        GeojsonFeatureCollection.get_all_facings()
