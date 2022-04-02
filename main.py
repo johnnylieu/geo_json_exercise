@@ -40,7 +40,6 @@ class GeojsonFeatureCollection:
         if empty_list == True:
             print(f"empty list: {list}")
 
-
     def get_facing_compound_label():
         input_id = input("What is the id? ")
         for i in data["features"]:
@@ -52,7 +51,6 @@ class GeojsonFeatureCollection:
                     
                     if input_id[0:2] == id and len(input_id) == 4:
                         print(f"{type}_{id}_{facing_label}")
-
 
 class GeojsonShelf:
     def get_all_shelves():
