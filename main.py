@@ -12,7 +12,7 @@ class GeojsonFeatureCollection:
                 print(json.dumps(i, indent=4))
                 ID = True
         if ID == False:
-            print("None")
+            return None
 
     def get_parent_feature():
         input_id = input("What is the id? ")
@@ -23,7 +23,7 @@ class GeojsonFeatureCollection:
             if input_id[0:2] == id and len(input_id) == 4 and parents == None:
                 print(json.dumps(i, indent=4))
         if len(input_id) != 4:
-            print("None")
+            return None
 
     def get_children_feature():
         input_id = input("What is the id? ")
