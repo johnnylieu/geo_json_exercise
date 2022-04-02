@@ -51,7 +51,7 @@ class GeojsonFeatureCollection:
                     facing_label = r["properties"]["label"]
                     
                     if input_id[0:2] == id and len(input_id) == 4:
-                        print(f"{type}_{id}_{facing_label}")
+                        return(f"{type}_{id}_{facing_label}")
 
 class GeojsonShelf:
     def get_all_shelves():
