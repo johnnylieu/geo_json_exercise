@@ -53,16 +53,11 @@ class GeojsonFeatureCollection:
             input_id = input("What is the id? ")
             for i in data["features"]:
                 id = i["properties"]["id"]
-                # print(f"id: {id}")
                 parents = i["properties"]["parent"]
-                # print(f"parents: {parents}")
                 type = i["properties"]["type"]
-                # print(f"type: {type}")
                 for r in data["features"]:
                     if r["properties"]["type"] == "facing" and r["properties"]["id"] == input_id:
-                        # print(f"r: {r}")
                         facing_label = r["properties"]["label"]
-                        # print(f"facing label: {facing_label}")
                         
                         if input_id[0:2] == id and len(input_id) == 4:
                             print(f"{type}_{id}_{facing_label}")
