@@ -2,9 +2,10 @@ import json
 
 with open("geojson.json", "r") as geojson:
     data = json.load(geojson)
+    Feature = data["features"]
 
 class GeojsonFeatureCollection:
-    def get_feature():
+    def get_feature() -> Feature:
         input_id = input("What is the id? ")
         ID = False
         for i in data["features"]:
@@ -14,7 +15,7 @@ class GeojsonFeatureCollection:
         if ID == False:
             return None
 
-    def get_parent_feature():
+    def get_parent_feature() -> Feature:
         input_id = input("What is the id? ")
         for i in data["features"]:
             id = i["properties"]["id"]
@@ -25,7 +26,7 @@ class GeojsonFeatureCollection:
         if len(input_id) != 4:
             return None
 
-    def get_children_feature():
+    def get_children_feature() -> Feature:
         input_id = input("What is the id? ")
         empty_list = True
         for i in data["features"]:
@@ -40,7 +41,7 @@ class GeojsonFeatureCollection:
         if empty_list == True:
             print(f"empty list: {list}")
 
-    def get_facing_compound_label():
+    def get_facing_compound_label() -> str:
         input_id = input("What is the id? ")
         for i in data["features"]:
             id = i["properties"]["id"]
