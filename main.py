@@ -3,7 +3,7 @@ import json
 with open("geojson.json", "r") as geojson:
     data = json.load(geojson)
 
-class GeojsonFeatureCollection:
+class GeojsonFeatureCollection(geojson):
     def get_feature() -> object:
         input_id = input("What is the id? ")
         ID = False
@@ -27,7 +27,7 @@ class GeojsonFeatureCollection:
         if len(input_id) != 4:
             return None
 
-    def get_children_feature():
+    def get_children_feature() -> list:
         input_id = input("What is the id? ")
         empty_list = True
         for i in data["features"]:
@@ -56,7 +56,7 @@ class GeojsonFeatureCollection:
                         return(f"{type}_{id}_{facing_label}")
 
 class GeojsonShelf:
-    def get_all_shelves():
+    def get_all_shelves() -> list:
         list = ""
         empty_list = True
         for i in data["features"]:
@@ -72,7 +72,7 @@ class GeojsonShelf:
             print(f"empty list: {list}")
 
 class GeojsonFacing:
-    def get_all_facings():
+    def get_all_facings() -> list:
         list = ""
         empty_list = True
         for i in data["features"]:
