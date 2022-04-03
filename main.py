@@ -2,20 +2,20 @@ import json
 
 with open("geojson.json", "r") as geojson:
     data = json.load(geojson)
-    Feature = data["features"]
 
 class GeojsonFeatureCollection:
-    def get_feature() -> Feature:
+    def get_feature() -> object:
         input_id = input("What is the id? ")
         ID = False
         for i in data["features"]:
             if i["properties"]["id"] == input_id:
                 print(json.dumps(i, indent=4))
                 ID = True
+                return i
         if ID == False:
             return None
 
-    def get_parent_feature() -> Feature:
+    def get_parent_feature() -> object:
         input_id = input("What is the id? ")
         for i in data["features"]:
             id = i["properties"]["id"]
@@ -23,10 +23,11 @@ class GeojsonFeatureCollection:
             
             if input_id[0:2] == id and len(input_id) == 4 and parents == None:
                 print(json.dumps(i, indent=4))
+                return i
         if len(input_id) != 4:
             return None
 
-    def get_children_feature() -> Feature:
+    def get_children_feature():
         input_id = input("What is the id? ")
         empty_list = True
         for i in data["features"]:
@@ -38,6 +39,7 @@ class GeojsonFeatureCollection:
                     empty_list = False
                     list = i
                     print(list)
+                    return(list)
         if empty_list == True:
             print(f"empty list: {list}")
 
@@ -65,6 +67,7 @@ class GeojsonShelf:
                 empty_list = False
                 list = i
                 print(list)
+                return(list)
         if empty_list == True:
             print(f"empty list: {list}")
 
@@ -80,6 +83,7 @@ class GeojsonFacing:
                 empty_list = False
                 list = i
                 print(list)
+                return(list)
         if empty_list == True:
             print(f"empty list: {list}")
 
