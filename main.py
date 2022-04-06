@@ -3,7 +3,7 @@ import json
 with open("geojson.json", "r") as geojson:
     data = json.load(geojson)
 
-class GeojsonFeatureCollection():
+class GeojsonFeatureCollection:
     def get_feature() -> object:
         input_id = input("What is the id? ")
         ID = False
